@@ -8,7 +8,8 @@ import { useTheme } from '@mui/material/styles';
 import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 
 // project import
-import { activeItem } from 'store/reducers/menu';
+// import { activeItem } from 'store/reducers/menu';
+import { OPEN_ITEM } from 'store/menu/constants';
 
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
@@ -17,7 +18,7 @@ const NavItem = ({ item, level }) => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
-  const { drawerOpen, openItem } = useSelector((state) => state.menu);
+  const { drawerOpen, openItem } = useSelector((state) => state.menuReducer);
 
   let itemTarget = '_self';
   if (item.target) {
@@ -30,7 +31,7 @@ const NavItem = ({ item, level }) => {
   }
 
   const itemHandler = (id) => {
-    dispatch(activeItem({ openItem: [id] }));
+    dispatch({ type: OPEN_ITEM, payload: [id] });
   };
 
   const Icon = item.icon;
@@ -40,7 +41,8 @@ const NavItem = ({ item, level }) => {
   // active menu item on page load
   useEffect(() => {
     if (pathname.includes(item.url)) {
-      dispatch(activeItem({ openItem: [item.id] }));
+      // dispatch(activeItem({ openItem: [item.id] }));
+      dispatch({ type: OPEN_ITEM, payload: [item.id] });
     }
     // eslint-disable-next-line
   }, [pathname]);

@@ -13,28 +13,38 @@ import navigation from 'menu-items';
 import Breadcrumbs from 'components/@extended/Breadcrumbs';
 
 // types
-import { openDrawer } from 'store/reducers/menu';
+// import { openDrawer } from 'store/reducers/menu';
+import { OPEN_DRAWER } from 'store/menu/constants';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
 const MainLayout = () => {
+  console.log('wroking');
   const theme = useTheme();
   const matchDownLG = useMediaQuery(theme.breakpoints.down('lg'));
   const dispatch = useDispatch();
 
-  const { drawerOpen } = useSelector((state) => state.menu);
-
+  const { drawerOpen } = useSelector((state) => state.menuReducer);
+  console.log('drawerOpen', drawerOpen);
   // drawer toggler
   const [open, setOpen] = useState(drawerOpen);
   const handleDrawerToggle = () => {
     setOpen(!open);
-    dispatch(openDrawer({ drawerOpen: !open }));
+    // dispatch(openDrawer({ drawerOpen: !open }));
+    dispatch({
+      type: OPEN_DRAWER,
+      payload: !open
+    });
   };
 
   // set media wise responsive drawer
   useEffect(() => {
     setOpen(!matchDownLG);
-    dispatch(openDrawer({ drawerOpen: !matchDownLG }));
+    // dispatch(openDrawer({ drawerOpen: !matchDownLG }));
+    dispatch({
+      type: OPEN_DRAWER,
+      payload: !matchDownLG
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchDownLG]);

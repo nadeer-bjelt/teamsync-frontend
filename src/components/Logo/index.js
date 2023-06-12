@@ -8,18 +8,20 @@ import { useDispatch, useSelector } from 'react-redux';
 // project import
 import Logo from './Logo';
 import config from 'config';
-import { activeItem } from 'store/reducers/menu';
+// import { activeItem } from 'store/reducers/menu';
+import { OPEN_ITEM } from 'store/menu/constants';
 
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = ({ sx, to }) => {
-  const { defaultId } = useSelector((state) => state.menu);
+  const { defaultId } = useSelector((state) => state?.menuReducer);
   const dispatch = useDispatch();
   return (
     <ButtonBase
       disableRipple
       component={Link}
-      onClick={() => dispatch(activeItem({ openItem: [defaultId] }))}
+      // onClick={() => dispatch(activeItem({ openItem: [defaultId] }))}
+      onClick={() => dispatch({ type: OPEN_ITEM, payload: [defaultId] })}
       to={!to ? config.defaultPath : to}
       sx={sx}
     >

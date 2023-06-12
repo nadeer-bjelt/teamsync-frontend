@@ -3,6 +3,8 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
+// import { element } from 'prop-types';
+import PageOne from 'pages/extra-pages/PageOne';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -42,6 +44,10 @@ const MainRoutes = {
     {
       path: 'sample-page',
       element: <SamplePage />
+    },
+    {
+      path: 'page1',
+      element: <PageOne />
     },
     {
       path: 'shadow',
