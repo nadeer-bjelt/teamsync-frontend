@@ -4,7 +4,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 //
 import rootReducer from './reducer';
 
-const initialState = {};
+// get the user info from local storage
+const userInfoFromLocalStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
+
+const initialState = {
+  userLogin: {
+    userInfo: userInfoFromLocalStorage
+  }
+};
 
 const middleware = [thunk];
 

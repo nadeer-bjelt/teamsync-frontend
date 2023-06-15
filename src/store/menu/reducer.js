@@ -1,11 +1,12 @@
-import { OPEN_DRAWER, OPEN_ITEM } from './constants';
+import { OPEN_DRAWER, OPEN_ITEM, SET_MENU_ITEMS } from './constants';
 
 const initialState = {
   openItem: ['dashboard'],
   defaultId: 'dashboard',
   openComponent: 'buttons',
   drawerOpen: false,
-  componentDrawerOpen: true
+  componentDrawerOpen: true,
+  menuItems: []
 };
 
 export default function menuReducer(state = initialState, { type, payload }) {
@@ -21,6 +22,11 @@ export default function menuReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         drawerOpen: payload
+      };
+    case SET_MENU_ITEMS:
+      return {
+        ...state,
+        menuItems: payload
       };
     default:
       return state;

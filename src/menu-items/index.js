@@ -1,14 +1,49 @@
-// project import
-// import pages from './pages';
-// import dashboard from './dashboard';
-// import utilities from './utilities';
-// import support from './support';
-import home from './home';
+// assets
+import { HomeOutlined } from '@ant-design/icons';
+
+// icons
+const icons = {
+  HomeOutlined
+};
 
 // ==============================|| MENU ITEMS ||============================== //
 
-const menuItems = {
-  items: [home]
+export const roles = {
+  IT_MEMBER: 'itMember',
+  IT_MANAGER: 'itManager'
 };
 
-export default menuItems;
+export const menuItems = {
+  itMember: [
+    {
+      id: 'group-home',
+      type: 'group',
+      children: [
+        {
+          id: 'home',
+          title: 'Home',
+          type: 'item',
+          url: '/dashboard/member',
+          icon: icons.HomeOutlined,
+          breadcrumbs: false
+        }
+      ]
+    }
+  ],
+  itManager: [
+    {
+      id: 'group-home',
+      type: 'group',
+      children: [
+        {
+          id: 'home',
+          title: 'Manger Home',
+          type: 'item',
+          url: '/dashboard/manager',
+          icon: icons.HomeOutlined,
+          breadcrumbs: false
+        }
+      ]
+    }
+  ]
+};

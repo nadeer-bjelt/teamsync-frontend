@@ -3,12 +3,16 @@ import { Box, Typography } from '@mui/material';
 
 // project import
 import NavGroup from './NavGroup';
-import menuItem from 'menu-items';
+// import { menuItems } from 'menu-items';
+import { useSelector } from 'react-redux';
+// console.log('menuItems', menuItems);
 
 // ==============================|| DRAWER CONTENT - NAVIGATION ||============================== //
 
 const Navigation = () => {
-  const navGroups = menuItem.items.map((item) => {
+  const menuItems = useSelector((state) => state.menuReducer.menuItems);
+  // console.log('items', items);
+  const navGroups = menuItems.map((item) => {
     switch (item.type) {
       case 'group':
         return <NavGroup key={item.id} item={item} />;
