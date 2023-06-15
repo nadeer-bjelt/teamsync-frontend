@@ -57,6 +57,8 @@ const AuthLogin = () => {
     return navigate('/dashboard/member');
   } else if (role == 'itManger' && department == 'IT') {
     return navigate('/dashboard/manger');
+  } else if (role == 'admin') {
+    return navigate('/dashboard/admin');
   } else {
     // }, []);
 

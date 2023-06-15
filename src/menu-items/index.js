@@ -45,5 +45,35 @@ export const menuItems = {
         }
       ]
     }
+  ],
+  admin: [
+    {
+      id: 'group-home',
+      type: 'group',
+      children: [
+        {
+          id: 'home',
+          title: 'Admin Home',
+          type: 'item',
+          url: '/dashboard/admin',
+          icon: icons.HomeOutlined,
+          breadcrumbs: false
+        }
+      ]
+    },
+    {
+      id: 'group-home',
+      type: 'group',
+      children: [
+        {
+          id: 'home',
+          title: 'Departments',
+          type: 'item',
+          url: '/dashboard/admin',
+          icon: icons.HomeOutlined,
+          breadcrumbs: false
+        }
+      ]
+    }
   ]
 };

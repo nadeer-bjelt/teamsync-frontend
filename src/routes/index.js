@@ -6,6 +6,7 @@ import LoginRoutes from './LoginRoutes';
 import MainRoutes from './MainRoutes';
 import itMemberRoutes from './IT/MemberRoutes';
 import itManagerRoutes from './IT/ManagerRoutes';
+import adminRoutes from './admin/index';
 
 // ==============================|| ROUTING RENDER ||============================== //
 
@@ -22,6 +23,8 @@ export default function ThemeRoutes() {
       return itMemberRoutes; // Wrap MainRoutes inside an array
     } else if (role === 'itManager' && department === 'IT') {
       return itManagerRoutes;
+    } else if (role === 'admin') {
+      return adminRoutes;
     } else {
       return LoginRoutes; // Wrap LoginRoutes inside an array
     }

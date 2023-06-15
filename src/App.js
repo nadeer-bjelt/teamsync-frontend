@@ -21,18 +21,20 @@ const App = () => {
   useEffect(() => {
     if (role === 'itMember' && department === 'IT') {
       navigate('/dashboard/member');
-    }
-    if (role === 'itManager' && department === 'IT') {
+    } else if (role === 'itManager' && department === 'IT') {
       navigate('/dashboard/manager');
+    } else if (role === 'admin') {
+      navigate('/dashboard/admin');
     }
   }, []);
 
   useEffect(() => {
     if (role === 'itMember' && department === 'IT') {
       dispatch(setMenuItems(menuItems.itMember));
-    }
-    if (role === 'itManager' && department === 'IT') {
+    } else if (role === 'itManager' && department === 'IT') {
       dispatch(setMenuItems(menuItems.itManager));
+    } else if (role === 'admin') {
+      dispatch(setMenuItems(menuItems.admin));
     }
   }, []);
 
