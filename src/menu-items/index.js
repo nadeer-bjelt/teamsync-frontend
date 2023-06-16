@@ -57,7 +57,7 @@ export const menuItems = {
           type: 'item',
           url: '/dashboard/admin',
           icon: icons.HomeOutlined,
-          breadcrumbs: false
+          breadcrumbs: true
         }
       ]
     },
@@ -69,9 +69,9 @@ export const menuItems = {
           id: 'home',
           title: 'Departments',
           type: 'item',
-          url: '/dashboard/admin',
+          url: '/dashboard/department',
           icon: icons.HomeOutlined,
-          breadcrumbs: false
+          breadcrumbs: true
         }
       ]
     }

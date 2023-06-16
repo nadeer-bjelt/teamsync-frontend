@@ -6,6 +6,7 @@ import Loadable from 'components/Loadable';
 // render - dashboard
 // import MemberDashboard = from 'pages/departments/IT/member/dashboard/index';
 const AdminDashboard = Loadable(lazy(() => import('pages/admin/dashboard/index')));
+const AdminDepartments = Loadable(lazy(() => import('pages/admin/department/index')));
 
 // ==============================|| IT MEMBER ROUTING ||============================== //
 
@@ -16,6 +17,10 @@ const adminRoutes = {
     {
       path: 'admin',
       element: <AdminDashboard />
+    },
+    {
+      path: 'department',
+      element: <AdminDepartments />
     }
   ]
 };
