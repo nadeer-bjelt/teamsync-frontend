@@ -74,6 +74,20 @@ export const menuItems = {
           breadcrumbs: true
         }
       ]
+    },
+    {
+      id: 'group-home',
+      type: 'group',
+      children: [
+        {
+          id: 'home',
+          title: 'Projects',
+          type: 'item',
+          url: '/dashboard/projects',
+          icon: icons.HomeOutlined,
+          breadcrumbs: false
+        }
+      ]
     }
   ]
 };
