@@ -7,8 +7,8 @@ import MainCard from 'components/MainCard';
 
 function AdminDepartmentsCards() {
   const dispatch = useDispatch();
-  const { departments } = useSelector((state) => state?.department);
-  console.log(departments);
+  const { userInfo } = useSelector((state) => state?.department);
+  console.log(userInfo);
 
   useEffect(() => {
     dispatch(getAllDepartments());
@@ -17,7 +17,7 @@ function AdminDepartmentsCards() {
 
   return (
     <>
-      {departments?.results?.map((data, index) => (
+      {userInfo?.results?.map((data, index) => (
         <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
           <MainCard contentSX={{ p: 2.25 }}>
             <Stack spacing={0.5}>
